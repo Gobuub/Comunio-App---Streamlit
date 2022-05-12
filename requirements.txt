@@ -212,7 +212,6 @@ pymongo==4.1.1
 Pympler==1.0.1
 PyMySQL==1.0.2
 PyNaCl 
-pyodbc===4.0.0-unsupported
 pyOpenSSL 
 pyparsing 
 pyreadline==2.1

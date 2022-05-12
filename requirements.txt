@@ -249,7 +249,6 @@ semver==2.13.0
 Send2Trash 
 simplegeneric==0.8.1
 singledispatch 
-sip==4.19.13
 six 
 smmap==5.0.0
 sniffio 

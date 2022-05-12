@@ -242,7 +242,6 @@ Rtree
 s3transfer==0.5.2
 scikit-image==0.18.3
 scikit-learn==1.0.2
-scikit-learn-intelex==2021.20210714.120553
 scipy 
 seaborn 
 selenium==4.1.3

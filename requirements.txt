@@ -30,9 +30,6 @@ black==19.10b0
 bleach 
 blinker==1.4
 bokeh 
-boto==2.49.0
-boto3==1.22.8
-botocore==1.25.8
 Bottleneck 
 brotlipy==0.7.0
 cached-property 
@@ -47,9 +44,6 @@ colorama
 comtypes==1.1.10
 contextlib2 
 cookiecutter 
-coreapi==2.3.3
-coreschema==0.0.4
-cryptography 
 cycler==0.10.0
 Cython 
 cytoolz==0.11.0
@@ -60,10 +54,6 @@ decorator
 defusedxml 
 diff-match-patch 
 distributed 
-Django==4.0.4
-django-coreapi==2.3.0
-django-import-export==2.8.0
-djangorestframework==3.13.1
 dnspython==2.2.1
 docutils 
 entrypoints==0.3
@@ -71,7 +61,6 @@ et-xmlfile==1.1.0
 fastcache 
 filelock 
 flake8 
-Flask 
 flatbuffers==2.0
 fonttools==4.25.0
 fsspec 
@@ -81,10 +70,6 @@ gast==0.5.3
 gevent 
 gitdb==4.0.9
 GitPython==3.1.27
-glob2 
-google-auth==2.6.6
-google-auth-oauthlib==0.4.6
-google-pasta==0.2.0
 greenlet 
 grpcio==1.44.0
 h11==0.13.0
@@ -115,14 +100,6 @@ joblib
 json5 
 jsonschema 
 jupyter 
-jupyter-client
-jupyter-console 
-jupyter-core 
-jupyter-server
-jupyterlab 
-jupyterlab-pygments
-jupyterlab-server 
-jupyterlab-widgets 
 keras==2.8.0
 Keras-Preprocessing==1.1.2
 keyring
@@ -139,8 +116,6 @@ MarkupSafe
 matplotlib 
 matplotlib-inline 
 mccabe==0.6.1
-mock 
-more-itertools 
 mpmath==1.2.1
 msgpack 
 multipledispatch
@@ -152,9 +127,6 @@ nbconvert
 nbformat 
 nest-asyncio 
 networkx
-nltk==3.6.5
-nose 
-notebook 
 numba 
 numexpr 
 numpy 
@@ -203,7 +175,6 @@ Pygments
 PyJWT 
 pylint 
 pyls-spyder==0.4.0
-pymongo==4.1.1
 Pympler==1.0.1
 PyMySQL==1.0.2
 PyNaCl 

@@ -131,7 +131,6 @@ lazy-object-proxy
 libarchive-c 
 libclang==14.0.1
 lightgbm==3.3.2
-llvmlite==0.37.0
 locket==0.2.1
 lxml
 Markdown==3.3.6

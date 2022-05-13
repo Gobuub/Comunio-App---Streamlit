@@ -265,7 +265,6 @@ SQLAlchemy
 sqlparse==0.4.2
 streamlit==1.9.0
 sympy
-tables==3.6.1
 tablib==3.2.1
 tblib 
 tensorboard==2.8.0

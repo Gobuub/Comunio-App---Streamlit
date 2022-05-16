@@ -159,8 +159,6 @@ dependencies:
     - pympler==1.0.1
     - pyrsistent==0.18.1
     - pytz-deprecation-shim==0.1.0.post0
-    - pywin32==304
-    - pywinpty==2.0.5
     - pyzmq==22.3.0
     - semver==2.13.0
     - send2trash==1.8.0

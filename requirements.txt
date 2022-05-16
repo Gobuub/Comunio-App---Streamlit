@@ -1,4 +1,4 @@
-keras==2.6.0
+keras==2.8.0
 numpy==1.19.2
 h5py==3.6.0
 openpyxl==3.0.9

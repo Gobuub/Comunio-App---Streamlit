@@ -77,7 +77,7 @@ pred = pred.round()
 pred['Avg_last_5_Games'] = df.Avg_last_5_games
 
 if uploaded_file is not None:
-
+    st.sidebar.subheader('Select your Squad Lineup')
     df = st.sidebar.selectbox('Defenders', (3, 4, 5))
     md = st.sidebar.selectbox('Mid', (4, 5, 3))
     dl = st.sidebar.selectbox('Forward', (3, 2, 1))

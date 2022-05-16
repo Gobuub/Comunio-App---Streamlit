@@ -1,9 +1,9 @@
-keras
-numpy 
-openpyxl
-pandas
-scikit-learn
-scipy
+keras==2.6.0
+numpy==1.21.5 
+openpyxl==3.0.9
+pandas==1.4.2
+scikit-learn==1.0.2
+scipy==1.7.3
 streamlit==1.9.0
 tensorflow==2.6.0
 

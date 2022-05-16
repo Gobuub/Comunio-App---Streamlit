@@ -1,20 +1,8 @@
 import pandas as pd
 import pickle
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
 from tensorflow import keras
-
-
-def predict_rnn2(data):
-    # model = pickle.load(open('modelos/comunio_rnn_2.model', 'rb'))
-    model = keras.models.load_model('src/comunio_rnn2_J35.h5')
-    x_scaler = pickle.load(open('src/x_scaler.model', 'rb'))
-    y_scaler = pickle.load(open('src/y_scaler.model', 'rb'))
-
-    data = pd.DataFrame(data)._get_numeric_data()
-
-    pred = y_scaler.inverse_transform(model.predict(x_scaler.transform(data)))
-
-    return pred
 
 
 class ComunioLib():
@@ -140,8 +128,10 @@ class ComunioLib():
         X = df.drop(['Target'], axis=1)._get_numeric_data()
         y = df.Target
 
-        x_scaler = pickle.load(open('src/x_scaler.model', 'rb'))
-        y_scaler = pickle.load(open('src/y_scaler.model', 'rb'))
+        x_scaler = MinMaxScaler()
+        y_scaler = MinMaxScaler()
+        # x_scaler = pickle.load(open('src/x_scaler.model', 'rb'))
+        # y_scaler = pickle.load(open('src/y_scaler.model', 'rb'))
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 

@@ -7,6 +7,7 @@ Created on Wed May 11 09:47:48 2022
 
 import pandas as pd
 from src.modelos import ComunioLib
+import pickle
 from tensorflow import keras
 
 # df create data train until J 35
@@ -52,3 +53,7 @@ model.fit(X_train_s,
 
 model.save(f'src/comunio_rnn2_J{journey}.h5')
 print('Model trained and saved')
+pickle.dump(x_scaler, open('src/x_scaler.model', 'wb'))
+print('x_scaler saved')
+pickle.dump(y_scaler, open('src/y_scaler.model', 'wb'))
+print('y_scaled saved')

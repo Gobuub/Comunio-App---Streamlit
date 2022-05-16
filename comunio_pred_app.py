@@ -21,8 +21,8 @@ st.write('''
          data squad,  you must use the same format of the csv file, with the
 ''')
 
-df = pd.read_csv("src/data/pred/comunio_J35.csv")
-df_all = ComunioLib.create_data_train(35)
+df = pd.read_csv("src/data/pred/comunio_J37.csv")
+df_all = ComunioLib.create_data_train(37)
 example = pd.read_csv("src/data/pred/example_squad.csv")
 
 

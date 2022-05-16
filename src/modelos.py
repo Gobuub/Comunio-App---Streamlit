@@ -128,10 +128,10 @@ class ComunioLib():
         X = df.drop(['Target'], axis=1)._get_numeric_data()
         y = df.Target
 
-        x_scaler = MinMaxScaler()
-        y_scaler = MinMaxScaler()
-        # x_scaler = pickle.load(open('src/x_scaler.model', 'rb'))
-        # y_scaler = pickle.load(open('src/y_scaler.model', 'rb'))
+        # x_scaler = MinMaxScaler()
+        # y_scaler = MinMaxScaler()
+        x_scaler = pickle.load(open('src/x_scaler.model', 'rb'))
+        y_scaler = pickle.load(open('src/y_scaler.model', 'rb'))
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 

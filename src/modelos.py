@@ -9,7 +9,7 @@ class ComunioLib():
 
     def create_data_train(journey):
 
-        comunio = pd.read_csv(f'SRC/data/train/comunio_J{journey}.csv')
+        comunio = pd.read_csv(f'src/data/train/comunio_J{journey}.csv')
 
         comunio = comunio.drop(['Matchs', 'Goals', 'Assists', 'Total_Points'], axis=1)
         comunio = comunio.rename(columns={f'J_{journey - 4}': 'J_4',

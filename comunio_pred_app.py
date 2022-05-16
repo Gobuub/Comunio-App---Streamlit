@@ -29,12 +29,19 @@ example = pd.read_csv("src/data/pred/example_squad.csv")
 def filedownload(df):
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
+    href = f'<a href="data:file/csv;base64,{b64}" download="example_squad.csv">Download J 37 Data CSV File</a>'
+    return href
+
+def squaddownload(df):
+    csv = df.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
     href = f'<a href="data:file/csv;base64,{b64}" download="example_squad.csv">Download Example Squad CSV File</a>'
     return href
 
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.markdown(filedownload(df_all), unsafe_allow_html=True)
+st.markdown(squaddownload(example), unsafe_allow_html=True)
 
 uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
 

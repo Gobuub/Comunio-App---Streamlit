@@ -7,7 +7,7 @@ Created on Wed May 11 11:03:43 2022
 
 import streamlit as st
 import pandas as pd
-from src.modelos import comunio_pred_lib
+from src.modelos import ComunioLib
 import base64
 
 st.title('COMUNIO ASSISTANT')
@@ -22,7 +22,7 @@ st.write('''
 ''')
 
 df= pd.read_csv("src/data/pred/comunio_J35.csv")
-df_all = comunio_pred_lib.create_data_train(35)
+df_all = ComunioLib.create_data_train(35)
 example = pd.read_csv("src/data/pred/example_squad.csv")
 
 def filedownload(df):
@@ -44,13 +44,13 @@ else:
         players = st.sidebar.selectbox('Player',df_all.loc[df_all.Team == teams]['Player'])
         
         features = pd.DataFrame(df_all.loc[(df_all.Team==teams)&(df_all.Player==players)])
-        #show = pd.DataFrame(df_all.loc[(df_all.Team==teams)&(df_all.Player==players)])
-        #df_show = show[['Team','Player','Position','Points_Average','Value']]
+        # show = pd.DataFrame(df_all.loc[(df_all.Team==teams)&(df_all.Player==players)])
+        # df_show = show[['Team','Player','Position','Points_Average','Value']]
         return features#, df_show
     input_df = user_input_features()
 
 df = input_df
-#df_show = show
+# df_show = show
     
 # Displays the user input features
 st.subheader('User Input features')
@@ -60,12 +60,12 @@ if uploaded_file is not None:
     st.write(df[['Team','Player','Position','Points_Average','Value']])
 else:
     st.write('Awaiting CSV file to be uploaded. Currently using example input parameters (shown below).')
-    #st.write(df_show)
+    # st.write(df_show)
     st.write(df[['Team','Player','Position','Points_Average','Value']])
 
 
 # Call function to make predictions
-prediction = comunio_pred_lib.predict_rnn2(df)
+prediction = ComunioLib.predict_rnn2(df)
 
 # Create an empty df to show the results to the customer
 pred = pd.DataFrame()
@@ -83,7 +83,7 @@ if uploaded_file is not None:
     st.subheader('Prediction for your squad')
     st.write(pred[['Position','Player','Prediction']])    
     st.subheader('Eleven´s Initial Recommended')
-    eleven = comunio_pred_lib.once_ideal_rnn2(pred, df, md, dl)
+    eleven = ComunioLib.once_ideal_rnn2(pred, df, md, dl)
     if df+md+dl == 10:
         st.subheader(f'Lineup {df}-{md}-{dl}')
         st.write(eleven)

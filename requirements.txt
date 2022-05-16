@@ -115,7 +115,6 @@ stack-data==0.2.0
 streamlit==1.9.0
 tensorboard
 tensorboard-data-server
-tensorboard-plugin-wit==1.6.0
 tensorflow==2.6.0
 tensorflow-estimator
 termcolor==1.1.0

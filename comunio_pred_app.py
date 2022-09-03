@@ -22,8 +22,8 @@ st.write('''
          below, and an example of squad.
 ''')
 
-df = pd.read_csv("src/data/pred/comunio_J37.csv")
-df_all = ComunioLib.create_data_train(37)
+df = pd.read_csv("src/data/pred/comunio_J3.csv")
+df_all = ComunioLib.create_data_train(3)
 example = pd.read_csv("src/data/pred/example_squad.csv")
 
 

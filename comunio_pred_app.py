@@ -18,7 +18,7 @@ st.write('''
          ## APP TO PREDICT PLAYER'S POINTS ON THE NEXT MATCH 
          
          If you want to predict your personal squad you can download the data of all players and upload a csv file with
-         your data squad, you must use the same format of the csv file, download the full data of the 37th Journey 
+         your data squad, you must use the same format of the csv file, download the full data of the 3rd Journey 
          below, and an example of squad.
 ''')
 
@@ -30,7 +30,7 @@ example = pd.read_csv("src/data/pred/example_squad.csv")
 def filedownload(df):
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
-    href = f'<a href="data:file/csv;base64,{b64}" download="j_37_data.csv">Download J 37 Data CSV File</a>'
+    href = f'<a href="data:file/csv;base64,{b64}" download="j_3_data.csv">Download J 3 Data CSV File</a>'
     return href
 
 def squaddownload(df):

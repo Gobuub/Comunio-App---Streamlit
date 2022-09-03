@@ -10,7 +10,7 @@ from src.modelos import ComunioLib
 import pickle
 from tensorflow import keras
 
-# df create data train until J 35
+# df create data train until J 3
 
 df = pd.read_csv('src/data/train/data_train.csv')
 

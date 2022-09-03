@@ -21,7 +21,7 @@ class ComunioLib():
                                           })
         clas = pd.read_excel(f'src/data/train/classification_J_{journey}.xlsx',
                              sheet_name=f'classification_J_{journey}', index_col='Unnamed: 0')
-        cal = pd.read_csv('src/data/train/Season_22-23.csv')
+        cal = pd.read_csv('src/data/train/Season_22_23.csv')
 
         comunio = comunio.drop(['Matchs', 'Goals', 'Assists','Total_Points' ], axis=1)
         comunio = comunio.rename(columns={f'J_{journey -4}': 'J_4',

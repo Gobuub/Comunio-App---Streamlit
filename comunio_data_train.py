@@ -14,7 +14,7 @@ from tensorflow import keras
 
 df = pd.read_csv('src/data/train/data_train.csv')
 
-journey = 35
+journey = 2
 # TO ADD NEW JOURNEY
 
 '''
@@ -43,7 +43,7 @@ df.to_csv('src/data/train/data_train.csv', index=False)
 X, y, X_train, X_test, y_train, y_test, X_train_s, X_test_s, y_train_s, y_test_s, x_scaler, y_scaler = ComunioLib.preprocess_data(df)
 
 
-model = keras.models.load_model('src/comunio_rnn2.h5')
+model = keras.models.load_model('src/comunio_rnn2_J{35}.h5')
 
 model.fit(X_train_s,
           y_train_s,
@@ -51,7 +51,7 @@ model.fit(X_train_s,
           validation_split=0.2
           )
 
-model.save(f'src/comunio_rnn2_J{journey}.h5')
+model.save(f'src/comunio_rnn2_J{journey}_temp_22-23.h5')
 print('Model trained and saved')
 pickle.dump(x_scaler, open('src/x_scaler.model', 'wb'))
 print('x_scaler saved')

@@ -7,7 +7,10 @@ from tensorflow import keras
 
 class ComunioLib():
 
-    def create_data_train(journey):
+    def __init__(self):
+        return None
+
+    def create_data_train(self, journey):
 
         comunio = pd.read_csv(f'src/data/train/comunio_J{journey}.csv')
 
@@ -69,7 +72,6 @@ class ComunioLib():
         df_1 = comunio.merge(points_per_team, how='left', left_on='Team', right_on='Team')
 
         matches_J = cal.loc[cal['Journey'] == (journey + 1)]
-        matches_J
 
         vs = []
         for team in df_1.Team:
@@ -123,7 +125,7 @@ class ComunioLib():
 
         return df_2
 
-    def preprocess_data(df):
+    def preprocess_data(self, df):
 
         X = df.drop(['Target'], axis=1)._get_numeric_data()
         y = df.Target
@@ -143,7 +145,7 @@ class ComunioLib():
 
         return X, y, X_train, X_test, y_train, y_test, X_train_s, X_test_s, y_train_s, y_test_s, x_scaler, y_scaler
 
-    def predict_rnn2(data):
+    def predict_rnn2(self, data):
         # model = pickle.load(open('modelos/comunio_rnn_2.model', 'rb'))
         model = keras.models.load_model('src/comunio_rnn2.h5')
         x_scaler = pickle.load(open('src/x_scaler.model', 'rb'))
@@ -155,7 +157,7 @@ class ComunioLib():
 
         return pred
 
-    def once_ideal_rnn2(data, df, mc, dl):
+    def once_ideal_rnn2(self, data, df, mc, dl):
         gk = data.loc[data['Position'] == 'PT'].sort_values(by=['Prediction', 'Avg_last_5_Games'], ascending=False)[:1]
         df = data.loc[data['Position'] == 'DF'].sort_values(by=['Prediction', 'Avg_last_5_Games'], ascending=False)[:df]
         md = data.loc[data['Position'] == 'MD'].sort_values(by=['Prediction', 'Avg_last_5_Games'], ascending=False)[:mc]

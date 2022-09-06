@@ -9,6 +9,7 @@ import streamlit as st
 import pandas as pd
 from src.modelos import ComunioLib
 import base64
+from PIL import Image
 
 st.title('COMUNIO ASSISTANT')
 journey = 4
@@ -103,13 +104,15 @@ if uploaded_file is not None:
     else:
         st.write('Input a right Lineup, example : 3-4-3, 4-4-2, ...')
 else:
-    print(df['squad_img'][0])
-    st.sidebar.image(df['squad_img'].values)
+    #print(df['squad_img'][0])
+    image_squad = Image.open(df['squad_img'][0])
+    image_player = Image.open(df['img'][0])
+    st.sidebar.image(image_squad)
     st.subheader('Prediction for next match')
     col1, col2 = st.columns(2)
     with col1:
         st.header(df['Player'][0])
-        st.image(df['img'][0])
+        st.image(image_player)
     with col2:
         st.write(pred)
 

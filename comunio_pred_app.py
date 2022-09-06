@@ -121,7 +121,7 @@ else:
     st.subheader('Prediction for next match')
     col1, col2 = st.columns(2)
     with col1:
-        st.header(df['Player'][0])
+        st.header(df['Player'].values)
         st.image(image_player)
     with col2:
         st.write(pred[['Prediction','Avg_last_5_Games']])

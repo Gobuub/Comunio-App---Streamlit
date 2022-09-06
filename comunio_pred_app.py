@@ -12,6 +12,8 @@ import base64
 
 st.title('COMUNIO ASSISTANT')
 journey = 4
+path = 'src/data/train/'
+season = 'Season_22_23'
 st.write(f'''
         # YOUR COMUNIO´S BEST FRIEND
          
@@ -24,7 +26,7 @@ st.write(f'''
 
 
 df = pd.read_csv(f"src/data/pred/comunio_J{journey}.csv")
-df_all = ComunioLib.create_data_train(journey)
+df_all = ComunioLib.create_data_train(journey, path, season)
 example = pd.read_csv("src/data/pred/example_squad.csv")
 
 

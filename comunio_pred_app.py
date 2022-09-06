@@ -58,8 +58,8 @@ else:
     def user_input_features():
         teams = st.sidebar.selectbox('team', df_all.Team.unique())
         players = st.sidebar.selectbox('Player', df_all.loc[df_all.Team == teams]['Player'])
-        img_squad = df_all.loc[df_all.Team==teams]['squad_img']
-        img_player = df_all.loc[df_all.Player == players]['img']
+        img_squad = df_all.loc[df_all.Team==teams]['squad_img'][0]
+        img_player = df_all.loc[df_all.Player == players]['img'][0]
 
         features = pd.DataFrame(df_all.loc[(df_all.Team == teams) & (df_all.Player == players)])
 

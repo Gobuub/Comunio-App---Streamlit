@@ -157,8 +157,9 @@ class ComunioLib():
         return X, y, X_train, X_test, y_train, y_test, X_train_s, X_test_s, y_train_s, y_test_s, x_scaler, y_scaler
 
     def predict_rnn2(data, journey):
+        journey = journey - 1
         # model = pickle.load(open('modelos/comunio_rnn_2.model', 'rb'))
-        model = keras.models.load_model(f'src/comunio_rnn2_J{journey-1}_temp_22-23.h5')
+        model = keras.models.load_model(f'src/comunio_rnn2_J{journey}_temp_22-23.h5')
         x_scaler = pickle.load(open('src/x_scaler.model', 'rb'))
         y_scaler = pickle.load(open('src/y_scaler.model', 'rb'))
 

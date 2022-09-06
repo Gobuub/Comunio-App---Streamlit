@@ -36,7 +36,7 @@ example = pd.read_csv("src/data/pred/example_squad.csv")
 def filedownload(df):
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
-    href = f'<a href="data:file/csv;base64,{b64}" download="j_3_data.csv">Download J 3 Data CSV File</a>'
+    href = f'<a href="data:file/csv;base64,{b64}" download="j_3_data.csv">Download J {journey} Data CSV File</a>'
     return href
 
 def squaddownload(df):
@@ -56,38 +56,29 @@ if uploaded_file is not None:
     input_df = pd.read_csv(uploaded_file)
 else:
     def user_input_features():
+
         teams = st.sidebar.selectbox('team', df_all.Team.unique())
+
         players = st.sidebar.selectbox('Player', df_all.loc[df_all.Team == teams]['Player'])
-        img_squad = df_all.loc[df_all.Team==teams]['squad_img'][0]
-        img_player = df_all.loc[df_all.Player == players]['img'][0]
 
         features = pd.DataFrame(df_all.loc[(df_all.Team == teams) & (df_all.Player == players)])
 
-        urllib.request.urlretrieve(
-            img_squad,
-            "image_squad.png")
-        image_squad = Image.open("image_squad.png")
-        urllib.request.urlretrieve(
-            img_player,
-            "image_player.png")
-        image_player = Image.open("image_player.png")
-
-        return features, image_player, image_squad
+        return features, teams, players
 
 
-    input_df, image_player, image_squad = user_input_features()
+    input_df, teams, players = user_input_features()
 
 df = input_df
 
 # Displays the user input features
 st.subheader('User Input features')
-print(df[['Team', 'Player', 'Position', 'Points_Average', 'Value']].columns)
+#print(df[['Team', 'Player', 'Position', 'Points_Average', 'Value']].columns)
 
 if uploaded_file is not None:
     st.write(df[['Team', 'Player', 'Position', 'Points_Average', 'Value']])
 else:
     st.write('Awaiting CSV file to be uploaded. Currently using example input parameters (shown below).')
-    st.write(df[['Team', 'Player', 'Position', 'Points_Average', 'Value']])
+    #st.write(df[['Team', 'Player', 'Position', 'Points_Average', 'Value']])
 
 
 # Call function to make predictions
@@ -118,13 +109,36 @@ if uploaded_file is not None:
         st.write('Input a right Lineup, example : 3-4-3, 4-4-2, ...')
 else:
     #print(df['squad_img'][0])
+    img_squad = df.loc[df.Team == teams]['squad_img'].values[0]
+    #print(img_squad)
+    img_player = df.loc[df.Player == players]['img'].values[0]
+    #print(img_player)
+    urllib.request.urlretrieve(
+        img_squad,
+        "image_squad.png")
+    image_squad = Image.open("image_squad.png")
+    urllib.request.urlretrieve(
+        img_player,
+        "image_player.png")
+    image_player = Image.open("image_player.png")
 
     st.sidebar.image(image_squad)
     st.subheader('Prediction for next match')
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
-        st.header(df['Player'][0])
+        st.info(df['Player'].values[0])
         st.image(image_player)
     with col2:
-        st.write(pred[['Prediction','Avg_last_5_Games']])
+        st.info('Position')
+        st.subheader(df['Position'].values[0])
+        st.info('Next Macht Prediction')
+        st.subheader(pred['Prediction'].values[0])
+
+
+    with col3:
+        st.info('Value')
+        st.subheader(df['Value'].values[0])
+        st.info('Points Average')
+        st.subheader(df['Points_Average'].values[0])
+
 

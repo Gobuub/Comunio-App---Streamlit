@@ -61,10 +61,19 @@ else:
 
         features = pd.DataFrame(df_all.loc[(df_all.Team == teams) & (df_all.Player == players)])
 
-        return features
+        urllib.request.urlretrieve(
+            df['squad_img'].values[0],
+            "image_squad.png")
+        image_squad = Image.open("image_squad.png")
+        urllib.request.urlretrieve(
+            df['img'][0],
+            "image_player.png")
+        image_player = Image.open("image_player.png")
+
+        return features, image_player, image_squad
 
 
-    input_df = user_input_features()
+    input_df, image_player, image_squad = user_input_features()
 
 df = input_df
 
@@ -107,14 +116,7 @@ if uploaded_file is not None:
         st.write('Input a right Lineup, example : 3-4-3, 4-4-2, ...')
 else:
     #print(df['squad_img'][0])
-    urllib.request.urlretrieve(
-        df['squad_img'][0],
-        "image_squad.png")
-    image_squad = Image.open("image_squad.png")
-    urllib.request.urlretrieve(
-        df['img'][0],
-        "image_player.png")
-    image_player = Image.open("image_player.png")
+
     st.sidebar.image(image_squad)
     st.subheader('Prediction for next match')
     col1, col2 = st.columns(2)

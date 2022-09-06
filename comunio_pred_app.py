@@ -122,5 +122,5 @@ else:
         st.header(df['Player'][0])
         st.image(image_player)
     with col2:
-        st.write(pred)
+        st.write(pred[['Prediction','Avg_last_5_Games']])
 

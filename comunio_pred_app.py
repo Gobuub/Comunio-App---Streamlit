@@ -58,15 +58,17 @@ else:
     def user_input_features():
         teams = st.sidebar.selectbox('team', df_all.Team.unique())
         players = st.sidebar.selectbox('Player', df_all.loc[df_all.Team == teams]['Player'])
+        img_squad = df_all.loc[df_all.Team==teams]['squad_img']
+        img_player = df_all.loc[df_all.Player == players]['img']
 
         features = pd.DataFrame(df_all.loc[(df_all.Team == teams) & (df_all.Player == players)])
 
         urllib.request.urlretrieve(
-            df['squad_img'].values[0],
+            img_squad,
             "image_squad.png")
         image_squad = Image.open("image_squad.png")
         urllib.request.urlretrieve(
-            df['img'][0],
+            img_player,
             "image_player.png")
         image_player = Image.open("image_player.png")
 
@@ -121,7 +123,7 @@ else:
     st.subheader('Prediction for next match')
     col1, col2 = st.columns(2)
     with col1:
-        st.header(df['Player'].values)
+        st.header(df['Player'][0])
         st.image(image_player)
     with col2:
         st.write(pred[['Prediction','Avg_last_5_Games']])

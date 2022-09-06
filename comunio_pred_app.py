@@ -122,6 +122,7 @@ else:
         "image_player.png")
     image_player = Image.open("image_player.png")
 
+    st.sidebar.info(df.Team.values[0])
     st.sidebar.image(image_squad)
     st.subheader('Prediction for next match')
     col1, col2, col3 = st.columns(3)  # Make 3 columns to show the info

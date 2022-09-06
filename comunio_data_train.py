@@ -48,6 +48,7 @@ model = keras.models.load_model(f'src/comunio_rnn2_J{journey-1}_temp_22-23.h5')
 
 model.fit(X_train_s,
           y_train_s,
+          batch_size=16,
           epochs=20,
           validation_split=0.2
           )

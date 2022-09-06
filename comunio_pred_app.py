@@ -77,7 +77,7 @@ else:
     st.write(df[['Team', 'Player', 'Position', 'Points_Average', 'Value']])
 
 # Call function to make predictions
-prediction = ComunioLib.predict_rnn2(df)
+prediction = ComunioLib.predict_rnn2(df, journey)
 
 # Create an empty df to show the results to the customer
 pred = pd.DataFrame()

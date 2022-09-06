@@ -73,8 +73,8 @@ if uploaded_file is not None:
     st.write(df[['Team', 'Player', 'Position', 'Points_Average', 'Value']])
 else:
     st.write('Awaiting CSV file to be uploaded. Currently using example input parameters (shown below).')
-
     st.write(df[['Team', 'Player', 'Position', 'Points_Average', 'Value']])
+
 
 # Call function to make predictions
 prediction = ComunioLib.predict_rnn2(df, journey)
@@ -88,6 +88,7 @@ pred = pred.round()
 pred['Avg_last_5_Games'] = df.Avg_last_5_games
 
 if uploaded_file is not None:
+
     st.sidebar.subheader('Select your Squad Lineup')
     df = st.sidebar.selectbox('Defenders', (3, 4, 5))
     md = st.sidebar.selectbox('Mid', (4, 5, 3))
@@ -102,5 +103,12 @@ if uploaded_file is not None:
     else:
         st.write('Input a right Lineup, example : 3-4-3, 4-4-2, ...')
 else:
+    st.sidebar.image(df['img_squad'])
     st.subheader('Prediction for next match')
-    st.write(pred)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.header(df['Player'])
+        st.image(df['img'])
+    with col2:
+        st.write(pred)
+

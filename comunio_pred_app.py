@@ -103,12 +103,12 @@ if uploaded_file is not None:
     else:
         st.write('Input a right Lineup, example : 3-4-3, 4-4-2, ...')
 else:
-    st.sidebar.image(df['squad_img'])
+    st.sidebar.image(df['squad_img'].values)
     st.subheader('Prediction for next match')
     col1, col2 = st.columns(2)
     with col1:
-        st.header(df['Player'])
-        st.image(df['img'])
+        st.header(df['Player'].values)
+        st.image(df['img'].values)
     with col2:
         st.write(pred)
 

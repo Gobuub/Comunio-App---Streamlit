@@ -14,7 +14,7 @@ from tensorflow import keras
 
 df = pd.read_csv('src/data/train/data_train.csv')
 
-journey = 2
+journey = 3
 # TO ADD NEW JOURNEY
 
 '''
@@ -44,7 +44,7 @@ X, y, X_train, X_test, y_train, y_test, X_train_s, X_test_s,\
     y_train_s, y_test_s, x_scaler, y_scaler = ComunioLib.preprocess_data(df)
 
 
-model = keras.models.load_model('src/comunio_rnn2_J35.h5')
+model = keras.models.load_model(f'src/comunio_rnn2_J{journey-1}_temp_22-23.h5')
 
 model.fit(X_train_s,
           y_train_s,

@@ -11,19 +11,20 @@ from src.modelos import ComunioLib
 import base64
 
 st.title('COMUNIO ASSISTANT')
-
-st.write('''
-         # YOUR COMUNIO´S BEST FRIEND
+journey = 4
+st.write(f'''
+        # YOUR COMUNIO´S BEST FRIEND
          
-         ## APP TO PREDICT PLAYER'S POINTS ON THE NEXT MATCH 
+        ## APP TO PREDICT PLAYER'S POINTS ON THE NEXT MATCH 
          
-         If you want to predict your personal squad you can download the data of all players and upload a csv file with
-         your data squad, you must use the same format of the csv file, download the full data of the 3rd Journey 
-         below, and an example of squad.
+        If you want to predict your personal squad you can download the data of all players and upload a csv file with
+        your data squad, you must use the same format of the csv file, download the full data of the {journey}rd Journey 
+        below, and an example of squad.
 ''')
 
-df = pd.read_csv("src/data/pred/comunio_J3.csv")
-df_all = ComunioLib.create_data_train(3)
+
+df = pd.read_csv(f"src/data/pred/comunio_J{journey}.csv")
+df_all = ComunioLib.create_data_train(journey)
 example = pd.read_csv("src/data/pred/example_squad.csv")
 
 
@@ -74,7 +75,7 @@ else:
     st.write(df[['Team', 'Player', 'Position', 'Points_Average', 'Value']])
 
 # Call function to make predictions
-prediction = ComunioLib.predict_rnn2(df)
+prediction = ComunioLib.predict_rnn2(df, journey)
 
 # Create an empty df to show the results to the customer
 pred = pd.DataFrame()

@@ -24,7 +24,7 @@ print('df_2 shape', df_2.shape)
 df_2 = df_2.dropna()
 print('df_2 shape Despues de dropna ', df_2.shape)
 
-train = pd.concat([old, df_2], axis=0)
+train = pd.concat([old, df_2], axis=0).dropna()
 print('train shape ',train.shape)
 print(len(old), print(len(df_2)), len(train))
 old.to_csv(path+f"data_train_old_{str(date).split(' ')[0]}.csv", index=False)

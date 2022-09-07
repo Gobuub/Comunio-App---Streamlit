@@ -122,6 +122,9 @@ else:
         "image_player.png")
     image_player = Image.open("image_player.png")
 
+    player_pred = pred['Prediction'].values[0]
+    player_avg = df['Points_Average'].values[0]
+
     st.sidebar.info(df.Team.values[0])
     st.sidebar.image(image_squad)
     st.subheader('Prediction for next match')
@@ -133,8 +136,14 @@ else:
     with col2:
         st.info('Position')
         st.subheader(df['Position'].values[0])
+
         st.info('Next Macht Prediction')
-        st.subheader(pred['Prediction'].values[0])
+        if player_pred > player_avg:
+            st.success(f'# {player_pred}')
+        elif player_pred < player_avg:
+            st.error(f'# {player_pred}')
+        else:
+            st.subheader(player_pred, anchor='center')
 
     with col3:
         st.info('Value')

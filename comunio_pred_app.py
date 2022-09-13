@@ -14,7 +14,7 @@ import urllib.request
 
 
 st.title('COMUNIO ASSISTANT')
-journey = 4
+journey = 5
 path = 'src/data/train/'
 season = 'Season_22_23'
 st.write(f'''

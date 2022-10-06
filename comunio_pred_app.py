@@ -12,6 +12,7 @@ import base64
 from PIL import Image
 import urllib.request
 
+st.set_page_config(layout='centered', page_icon='⚽', page_title='Comunio Assistant')
 
 st.title('COMUNIO ASSISTANT')
 journey = 7

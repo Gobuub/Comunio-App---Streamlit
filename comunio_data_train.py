@@ -14,7 +14,7 @@ from tensorflow import keras
 
 df = pd.read_csv('src/data/train/data_train.csv')
 
-journey = 7
+journey = 8
 # TO ADD NEW JOURNEY
 
 '''

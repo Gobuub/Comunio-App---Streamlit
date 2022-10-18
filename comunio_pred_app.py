@@ -15,7 +15,7 @@ import urllib.request
 st.set_page_config(layout='centered', page_icon='⚽', page_title='Comunio Assistant')
 
 st.title('COMUNIO ASSISTANT')
-journey = 8
+journey = 9
 path = 'src/data/train/'
 season = 'Season_22_23'
 st.write(f'''

@@ -9,12 +9,13 @@ import pandas as pd
 from src.modelos import ComunioLib
 import pickle
 from tensorflow import keras
+from sklearn.metrics import mean_squared_error as mse
 
 # df create data train until J 3
 
 df = pd.read_csv('src/data/train/data_train.csv')
 
-journey = 14
+journey = 15
 # TO ADD NEW JOURNEY
 
 '''

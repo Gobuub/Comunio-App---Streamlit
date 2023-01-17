@@ -15,7 +15,7 @@ from sklearn.metrics import mean_squared_error as mse
 
 df = pd.read_csv('src/data/train/data_train.csv')
 
-journey = 15
+journey = 16
 # TO ADD NEW JOURNEY
 
 '''

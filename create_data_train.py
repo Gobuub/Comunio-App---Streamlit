@@ -8,7 +8,7 @@ season = 'Season_22_23'
 old = pd.read_csv(path + 'data_train.csv')
 print('old shape', old.shape)
 # create new df for journey 3 date: 2022-09-06
-journey = int(input(('Intoduce el número de jornada a crear: ')))
+journey = int(input('Intoduce el número de jornada a crear: '))
 new = cm.ComunioLib.create_data_train(journey, path, season)
 print('new shape', new.shape)
 date = datetime.now()

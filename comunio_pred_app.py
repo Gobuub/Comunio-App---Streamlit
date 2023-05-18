@@ -15,7 +15,7 @@ import urllib.request
 st.set_page_config(layout='centered', page_icon='⚽', page_title='Comunio Assistant')
 
 st.title('COMUNIO ASSISTANT')
-journey = 31
+journey = 34
 path = 'src/data/train/'
 season = 'Season_22_23'
 st.write(f'''
@@ -83,7 +83,16 @@ else:
 
 
 # Calls function to make predictions
-prediction = ComunioLib.predict_rnn2(df, journey)
+try:
+    prediction = ComunioLib.predict_rnn2(df, journey)
+except:
+    for i in range(1, 5):
+        try:
+            prediction = ComunioLib.predict_rnn2(df, journey-i)
+            break
+        except:
+            continue
+
 
 # Create an empty df to show the results to the customer
 pred = pd.DataFrame()
